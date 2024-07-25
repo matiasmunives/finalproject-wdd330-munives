@@ -8,7 +8,7 @@ async function getTemples(){
 }
 
 /* ***************************
- *  Get all inventory items and temp_name by temp_id
+ *  Get all temples by temp_id
  * ************************** */
 async function getTemplesByTempleId(temp_id) {
   try {
@@ -22,7 +22,7 @@ async function getTemplesByTempleId(temp_id) {
     )
     return data.rows
   } catch (error) {
-    console.error("gettemplesbyid error " + error)
+    console.error("getTemplesById error " + error)
   }
 }
 
