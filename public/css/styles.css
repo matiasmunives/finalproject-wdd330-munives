@@ -62,7 +62,6 @@ header h1 {
 
  .banner img {
   max-width: 100%;
-  margin-top: 25px;
   margin-bottom: 5px;
   align-items: center;
 }
@@ -232,6 +231,275 @@ main h3 {
     margin-left: 20px;
     margin-right: 20px;
   }
+
+  section#manage-inventory h2 {
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  section#manage-inventory p {
+    font-size: 18px;
+  }
+
+  ul#inv-display {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 20px;
+}
+
+ul#inv-display li {
+  flex: 1 1 200px;  
+  border: solid grey 2px;
+  border-radius: 5px;
+  margin: 15px;
+  padding: 15px;
+  align-content: center;
+  text-decoration: none;
+}
+
+ul#inv-display li:hover {
+  box-shadow: 3px 3px 10px rgb(146, 32, 32);
+}
+
+ul#inv-display li img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+  align-content: center;
+  align-items: center;
+}
+
+ul#inv-display li a:link, a:visited, a:active {
+  text-decoration:none;
+  color: black;
+  display: inline;
+}
+
+ul#inv-display hr {
+  color: black;
+  margin-top: 30px;
+}
+
+ul#inv-display h2 {
+  color: black;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+ul#inv-display h2 a:hover {
+  color: rgb(146, 32, 32);
+  font-weight: bold;
+  }
+
+ul#inv-display .namePrice {
+  color: rgb(146, 32, 32);
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/*Employee pages format*/
+
+ul#emp-display {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 20px;
+}
+
+ul#emp-display li {
+  flex: 1 1 200px;  
+  border: solid grey 2px;
+  border-radius: 5px;
+  margin: 15px;
+  padding: 15px;
+  align-content: center;
+  text-decoration: none;
+}
+
+ul#emp-display li:hover {
+  box-shadow: 3px 3px 10px rgb(146, 32, 32);
+}
+
+ul#emp-display li img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+  align-content: center;
+  align-items: center;
+}
+
+ul#emp-display li a:link, a:visited, a:active {
+  text-decoration:none;
+  color: black;
+  display: inline;
+}
+
+ul#emp-display hr {
+  color: black;
+  margin-top: 30px;
+}
+
+ul#emp-display h2 {
+  color: black;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+ul#emp-display h2 a:hover {
+  color: rgb(146, 32, 32);
+  font-weight: bold;
+  }
+
+ul#emp-display .namePrice {
+  color: rgb(146, 32, 32);
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+/* Detail pages format*/
+
+ul#inv-detail-display {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  align-content: center;
+}
+
+ul#inv-detail-display li {
+  width: 50% ;
+  margin: auto;
+  border: solid grey 2px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  padding: 30px;
+}
+
+ul#inv-detail-display li img {
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  margin-bottom: 30px;
+  display: block;
+  align-content: center;
+  align-items: center;
+}
+
+ul#inv-detail-display li .detailInfo {
+  color: black;
+  font-size: 25px;
+  align-items: center;
+  margin-top: 20px;
+  margin: auto;
+}
+
+ul#inv-detail-display li .description {
+  line-height: 45px;
+}
+
+/* Employee details pages format*/
+
+ul#emp-detail-display {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  align-content: center;
+}
+
+ul#emp-detail-display li {
+  width: 40% ;
+  margin: auto;
+  border: solid grey 2px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+ul#emp-detail-display li img {
+  max-width: 60%;
+  height: auto;
+  margin: auto;
+  margin-bottom: 10px;
+  display: block;
+  align-content: center;
+  align-items: center;
+}
+
+ul#emp-detail-display li .detailInfo {
+  color: black;
+  font-size: 20px;
+  align-items: center;
+  margin-top: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+ul#emp-detail-display li .description {
+  line-height: 45px;
+}
+
+/* Table format*/
+#employeeDisplay table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#employeeDisplay th, td {
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 13px;
+}
+
+#employeeDisplay th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+#employeeDisplay tr:hover {
+  background-color: #f1f1f1;
+}
+
+#employeeDisplay tbody tr:nth-child(odd) {
+  background-color: #f9f9f9; 
+}
+
+#employeeDisplay tbody tr:nth-child(even) {
+  background-color: #ffffff; 
+}
+
+#employeeDisplay td img {
+  width: 50px;
+}
+
+/* Alert format*/
+
+.notice {
+  background-color: rgb(244 244 183);
+  color: black;
+  width: 600px;
+  padding: 20px;
+  margin: auto;
+  border: 2px solid gray;
+  border-radius: 5px;
+  line-height: 30px;
+  font-size: 22px;
+  margin-bottom: 20px;
+  list-style: none;
+}
 
 /*
 ========================================
