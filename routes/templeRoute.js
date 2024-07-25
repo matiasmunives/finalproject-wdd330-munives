@@ -15,6 +15,7 @@ router.get("/detail/:temple_id", utilities.handleErrors(tempController.buildTemp
 router.get("/error/", utilities.handleErrors(tempController.errorRoute));
 
 // Route to management page
+
 router.get("/management", utilities.handleErrors(tempController.buildManagementView));
 
 // Route to Add Vehicle Page
@@ -37,7 +38,7 @@ router.post("/add_classification",
 
 //Router to get the vehicles for management view to update and delete
 //Returns JSON
-router.get("/getInventory/:classification_id", utilities.handleErrors(tempController.getInventoryJSON))
+router.get("/getTemple/:temp_id", utilities.handleErrors(tempController.getInventoryJSON))
 
 // Route to update vehicle detail
 router.get("/edit/:inventoryId", utilities.handleErrors(tempController.editVehicleForm));

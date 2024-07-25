@@ -17,7 +17,7 @@ async function getTemplesByTempleId(temp_id) {
       temp_city, temp_country, temp_bdate, temp_ddate,
       temp_phone, temp_picture
       FROM temples
-      WHERE temple_id = $1`,
+      WHERE temp_id = $1`,
       [temp_id]
     )
     return data.rows
@@ -36,7 +36,7 @@ async function getTempleById(temp_id) {
       temp_city, temp_country, temp_bdate, temp_ddate,
       temp_phone, temp_picture
       FROM temples
-      WHERE temple_id = $1`,
+      WHERE temp_id = $1`,
       [temp_id]
     )
     return data.rows

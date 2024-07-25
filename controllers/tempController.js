@@ -4,7 +4,7 @@ const utilities = require("../utilities");
 const tempCont = {}
 
 /* ***************************
- *  Build inventory by classification view
+ *  Build inventory by temple view
  * ************************** */
 
 tempCont.buildByTempleId = async function (req, res, next) {
@@ -26,7 +26,7 @@ tempCont.buildByTempleId = async function (req, res, next) {
 };
 
 /* ***************************
- *  Build inventory detail
+ *  Build temple detail
  * ************************** */
 tempCont.buildTempleDetailById = async function (req, res, next) {
   const temp_id = req.params.temp_id;// get inventory id from the request
