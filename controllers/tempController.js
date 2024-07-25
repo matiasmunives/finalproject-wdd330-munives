@@ -1,5 +1,5 @@
-const invModel = require("../models/temple-model");
-const utilities = require("../utilities/");
+const tempModel = require("../models/temple-model");
+const utilities = require("../utilities");
 
 const invCont = {}
 
@@ -7,16 +7,16 @@ const invCont = {}
  *  Build inventory by classification view
  * ************************** */
 
-invCont.buildByClassificationId = async function (req, res, next) {
-  const classification_id = req.params.classificationId; // get classification id from the request
-  const data = await invModel.getInventoryByClassificationId(classification_id); // use classification id to get the inventory based on classification
+tempCont.buildByTempleId = async function (req, res, next) {
+  const temp_id = req.params.temp_id; 
+  const data = await invModel.getTemplesByTempleId(temp_id);
 
-  const grid = await utilities.buildClassificationGrid(data) //build a view with the vehicles/inventory result
-  let nav = await utilities.getNav() // get our nav
+  const grid = await utilities.buildTempleGrid(data)
+  let nav = await utilities.getNav()
 
-  const className = data[0]?.classification_name || "Unknown";
+  const className = data[0]?.temple_name || "Unknown";
 
-  res.render("./inventory/classification", {
+  res.render("./temples/temples", {
     title: className + " vehicles",
     nav,
     grid,
