@@ -1,27 +1,28 @@
-const pool = require("../database/")
+const pool = require("../database")
 
 /* ***************************
- *  Get all classification data
+ *  Get all temples data
  * ************************** */
-async function getClassifications(){
-  return await pool.query("SELECT * FROM public.classification ORDER BY classification_name")
+async function getTemples(){
+  return await pool.query("SELECT * FROM public.temples ORDER BY temp_name")
 }
 
 /* ***************************
- *  Get all inventory items and classification_name by classification_id
+ *  Get all inventory items and temp_name by temp_id
  * ************************** */
-async function getInventoryByClassificationId(classification_id) {
+async function getTemplesByTempleId(temp_id) {
   try {
     const data = await pool.query(
-      `SELECT * FROM public.inventory AS i 
-      JOIN public.classification AS c 
-      ON i.classification_id = c.classification_id 
-      WHERE i.classification_id = $1`,
-      [classification_id]
+      `SELECT temp_id, temp_name, temp_address, 
+      temp_city, temp_country, temp_bdate, temp_ddate,
+      temp_phone, temp_picture
+      FROM temples
+      WHERE temple_id = ?;`,
+      [temp_id]
     )
     return data.rows
   } catch (error) {
-    console.error("getclassificationbyid error " + error)
+    console.error("gettemplesbyid error " + error)
   }
 }
 
@@ -171,6 +172,6 @@ async function deleteVehicle(inv_id) {
   }
 }
 
-module.exports = {getClassifications, getInventoryByClassificationId, getInventoryById,
+module.exports = {getTemples, getTemplesByTempleId, getInventoryById,
   addClassification, addInventory, updateInventory, deleteVehicle};
 

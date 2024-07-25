@@ -1,0 +1,41 @@
+<h1><%- title %></h1>
+<%- messages() %>
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+
+<h2>Please confirm delete</h2>        
+<div id="formContainer" class="formContainer">
+    <form id="deleteForm" class="form" action="/inv/delete_vehicle" method="POST">
+
+        <fieldset>
+        
+          <label for="inv_make">Make:</label>
+          <input type="text" name="inv_make" id="inv_make" placeholder="Min of three characters"
+          required value="<%= locals.inv_make %>" readonly>
+
+          <label for="inv_model">Model:</label>
+          <input type="text" name="inv_model" id="inv_model" placeholder="Min of three characters"
+          required value="<%= locals.inv_model %>" readonly>
+
+          <label for="inv_year">Year:</label>
+          <input type="number" name="inv_year" id="inv_year" placeholder="2020"
+          required value="<%= locals.inv_year %>" readonly>
+          
+          <label for="inv_price">Price:</label>
+          <input type="number" name="inv_price" id="inv_price" placeholder="1000"
+          required value="<%= locals.inv_price %>" readonly>
+
+          <input type="hidden" name="inv_id"
+          <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+          <% } %>>
+          
+        <button type="submit">Delete Vehicle</button>
+        </fieldset>
+    </form>
+</div>

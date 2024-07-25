@@ -1,4 +1,4 @@
-const invModel = require("../models/inventory-model")
+const invTemple = require("../models/temple-model")
 const empModel = require("../models/employee-model")
 const moment = require('moment');
 const jwt = require("jsonwebtoken")
@@ -10,18 +10,18 @@ const Util = {}
  * Constructs the nav HTML unordered list
  ************************** */
 Util.getNav = async function (req, res, next) {
-  let data = await invModel.getClassifications()
+  let data = await invTemple.getTemples()
   let list = "<ul>"
   list += '<li><a href="/" title="Home page">Home</a></li>'
   data.rows.forEach((row) => {
     list += "<li>"
     list +=
-      '<a href="/inv/type/' +
-      row.classification_id +
-      '" title="See our inventory of ' +
-      row.classification_name + 
-      ' vehicles">' +
-      row.classification_name +
+      '<a href="/temp/type/' +
+      row.temp_id +
+      '" title="See the ' +
+      row.temp_name + 
+      ' temples">' +
+      row.temp_name +
       "</a>"
     list += "</li>"
   })

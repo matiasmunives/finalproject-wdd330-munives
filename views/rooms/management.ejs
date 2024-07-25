@@ -1,0 +1,31 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+  
+  <%- messages() %>
+  
+  <% if (errors) { %>
+  <ul class="notice">
+  <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+  <%  }) %>
+  </ul>
+  <% } %>
+
+<section id="manage-inventory">
+    <h2>Manage Employees</h2>
+    <div>
+        <ul class="links">
+            <li><a href="./add_employee">Add New Employee</a></li>
+            <li><a href="./add_department">Add New Department</a></li>
+        </ul>
+      </div>
+      <p>Please select a department to manage employees</p>
+      <%- departmentSelect %>
+      <table id="employeeDisplay"></table>
+      <noscript>JavaScript must be enabled to use this page.</noscript>
+    </section>
+
+<script src="../../js/employee.js"></script>

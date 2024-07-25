@@ -1,0 +1,797 @@
+:root {
+  --primary-color: #12263B;
+  --secondary-color: #203A6A;
+  --accent1-color: #415a77;
+  --accent2-color: #5F6F84;
+  --accent3-color: #e0e1dd;
+
+  --heading-font: "Roboto", sans-serif;
+  --paragraph-font: 'Nunito Sans', sans-serif;
+
+  --headline-color-on-white: #203A6A;  
+  --headline-color-on-color: #FFFFFF; 
+  --paragraph-color-on-white: black; 
+  --paragraph-color-on-color: #FFFFFF; 
+  --header-background-color: #12263B;
+  --text-background-color: #415a77;
+  --nav-link-color: black;
+  --nav-background-color: #203A6A;
+  --nav-hover-link-color: white;
+  --nav-hover-background-color: #5F6F84;
+  --footer-background-color: #12263B;
+  --footer-color-on-white: #12263B;  
+  --footer-color-on-color: #FFFFFF; 
+}
+
+html {
+  background-color: var(--accent3-color);
+}
+
+body {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: white;
+    padding: 1em;
+    font-family: var(--paragraph-font);
+}
+
+/*
+========================================
+Header
+========================================
+*/
+    
+header {
+  background-color: var(--header-background-color);
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+header h1 {
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  font-style: normal;
+  letter-spacing: 2px;
+  padding-top: 50px;
+}
+
+ .banner img {
+  max-width: 100%;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  align-items: center;
+}
+
+nav {
+  list-style: none;
+  margin-bottom: 20px;
+  background-color: whitesmoke;
+}
+
+.navigation {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-right: 40px;
+}
+
+.navigation a {
+  display: inline;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--headline-color-on-white);
+  }
+
+nav ul a {
+  margin-left: 20px;
+  margin-right: 20px;
+
+  }
+
+nav ul a:link {
+  text-decoration:none;
+  color: var(--headline-color-on-white);
+}
+
+nav ul a:visited {
+  color: var(--headline-color-on-white);
+  text-decoration:none;
+}
+
+nav ul a:hover {
+  border-bottom-style: solid ;
+  border-bottom-width: 3px;
+  color: var(--headline-color-on-color);
+  background-color: var(--header-background-color);
+  padding: 10px;
+  border-radius: 10px;
+  }
+
+/*
+========================================
+Hamburg Menu
+========================================
+*/
+
+#menu {
+  font-size: 25px;
+  border: 0;
+  background: none;
+  color: var(--paragraph-color-on-color);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: none;
+}
+
+#menu::before {
+  content: "☰";
+}
+
+#menu.open::before {
+  content: "✖";
+}
+
+.open a {
+  display: block;
+}
+
+.open a:hover {
+  border-bottom-style:solid ;
+  border-bottom-width: 3px;
+  border-bottom-color: var(--accent3-color);
+}
+
+/*
+========================================
+Main
+========================================
+*/
+
+main h1 {
+  color: var(--headline-color-on-color);
+  background-color: var(--headline-color-on-white);
+  text-align: center;
+  font-size: 40PX;
+  font-family: var(--heading-font);
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 25px; 
+  margin-bottom: 5px;
+  max-width: 70%;
+}
+
+main h2 {
+    font-size: 30px;
+    text-align: center;
+    font-family: var(--heading-font);
+    color: var(--headline-color-on-white);
+    line-height: 30px;
+}
+
+main h3 {
+  font-size: 25px;
+  text-align: center;
+  font-family: var(--heading-font);
+  color: var(--accent1-color);
+  margin-bottom: 10px;
+}
+
+.home-container {
+  padding: 0 0.5em;
+  max-width: 650px;
+  margin: auto;
+  line-height: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+  margin: auto;
+  width: 800px;
+}
+
+.container div {
+  flex: 1;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.container img {
+  max-width: 100px;
+}
+
+.container a {
+  font-weight: bold;
+}
+
+.container a:link, a:visited, a:active {
+  text-decoration:none;
+  color: var(--headline-color-on-white);
+}
+
+.container  a:visited {
+  color: var(--headline-color-on-white);
+}
+
+
+.container p {
+  font-family: var( --paragraph-font);
+  font-size: 18px;
+  }
+
+  main.divider {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+/*
+========================================
+Sources List
+========================================
+*/
+
+.styled-list {
+  padding: 0;
+}
+
+.styled-list li {
+  margin: 10px 0;
+}
+
+.styled-list a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.styled-list a:hover {
+  color: #2c3e50;
+}
+
+.styled-list a:visited {
+  color: black; 
+}
+
+/*
+========================================
+Form
+========================================
+*/
+
+.contactForm {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.contactForm fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contactForm div {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.contactForm label {
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.contactForm input[type="email"],
+.contactForm input[type="number"],
+.contactForm input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.contactForm button[type="submit"] {
+  width: 50%;
+  padding: 10px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 120px;
+  margin-top: 20px;
+}
+
+.contactForm button[type="submit"]:hover {
+  background-color: var(--secondary-color);
+}
+
+input:required:invalid, input:focus:invalid {
+  background-color: rgb(248, 173, 173);
+  background-position: right top;
+  background-repeat: no-repeat;
+ }
+
+ input:required:valid {
+  background-color: rgb(196, 242, 196);
+  background-position: right top;
+  background-repeat: no-repeat;
+ }
+
+ textarea  {
+  margin-top: 10px;
+  font-size: 15px;
+  width: 100%;
+  height: 150px;
+}
+
+.title-1 {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--headline-color-on-white);
+}
+
+/*
+========================================
+Card Services
+========================================
+*/
+
+.card p {
+  line-height: 30px;
+}
+
+.card section {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: calc(33% - 20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.card section:hover {
+  transform: scale(1.02);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 5 / 3;
+}
+
+.card h3 {
+  margin: 16px;
+  font-size: 1.5rem;
+  color: var(--headline-color-on-white);
+}
+
+.card p {
+  margin: 16px;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.card-description {
+  font-weight: bold;
+}
+
+/*
+========================================
+Footer
+========================================
+*/
+
+footer {
+  background-color: var(--footer-background-color); 
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  grid-column: 1 / 4;
+  margin-top: 10px;
+}
+
+.footer p {
+  color: var(--footer-color-on-color);
+  font-size: 15px;
+  text-align: center; 
+  letter-spacing: 1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.footer p a {
+  text-decoration:none;
+  color: var(--footer-color-on-color);
+}
+
+.footer p a:visited {
+  color: var(--footer-color-on-color);
+  text-decoration:none;
+}
+
+hr {
+  height: 1px;
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: var(--accent1-color);
+}
+
+@media (max-width: 600px) {
+
+  body {
+    max-width: 100%;
+    margin: 10px;
+  }
+  
+  /*
+  ========================================
+  Header
+  ========================================
+  */
+    
+  header {
+    align-items: center;
+    align-content: center;
+    padding: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    font-size: 10px;
+    line-height: 30px;
+  }
+
+  header img {
+    width: 35%;
+    margin-top: 40px;
+  }
+  
+ /*
+========================================
+Menu
+========================================
+*/
+
+.navigation {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-inline-start: 5px;
+}
+
+.navigation a {
+  display: none;
+  margin-top: 7px;
+  margin-bottom: 7px; 
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 20px;
+}
+
+nav ul a:link, a:visited, a:active {
+  text-decoration:none;
+  color: var(--headline-color-on-color);
+}
+
+nav ul a:visited {
+  color: var(--headline-color-on-color);
+}
+
+/*
+========================================
+Hamburg Menu
+========================================
+*/
+
+#menu {
+  font-size: 30px;
+  border: 0;
+  background: none;
+  color: var(--headline-color-on-color);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  margin-top: 20px;
+  margin-right: 5px;
+}
+
+#menu::before {
+content: "☰";
+}
+
+#menu.open::before {
+content: "✖";
+}
+
+.open a {
+display: block;
+}
+
+.open a:hover {
+border-bottom-style:solid ;
+border-bottom-width: 3px;
+border-bottom-color: var(--accent3-color);
+}
+
+  /*
+  ========================================
+  Main
+  ========================================
+  */
+  
+main {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+main h1 {
+  font-size: 35px;
+}
+
+main h2 {
+  font-size: 30px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+main h3 {
+  font-size: 20px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+p {
+  font-size: 15px;
+  padding: 0;
+  letter-spacing: 0px;
+}
+
+/*
+========================================
+Card Services
+========================================
+*/
+
+.card section {
+  width: 100%;
+}
+
+.card p {
+  font-size: 13px;
+  line-height: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+   /*
+========================================
+Form
+========================================
+*/
+
+.formContainer {
+  font-size: 16px;
+  text-align: justify;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: auto;
+}
+
+.contactForm {
+  width: 220px;
+  margin: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.title-1 {
+  font-size: 15px;
+}
+
+textarea {
+  width: 210px;
+  margin: auto;
+}
+
+.contactForm button[type="submit"] {
+  margin-left: 45px;
+  width: 60%;
+  margin-bottom: 10px;
+
+}
+
+   /*
+========================================
+Source List
+========================================
+*/
+
+.styled-list li {
+  margin: 15px 1px;
+  font-size: 12px;
+  list-style:disc;
+
+
+}
+
+   /*
+========================================
+Footer
+========================================
+*/
+
+footer {
+  margin-left: 1px;
+  margin-right: 1px;
+  max-width: 100%;
+}
+
+.footer p {
+  font-size: 11px;
+}
+}
+
+@media (min-width: 600px) and (max-width: 740px) {
+
+  body {
+    max-width: 100%;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+
+   /*
+========================================
+Header
+========================================
+*/
+
+  header {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    text-align: center;
+  }
+
+ /*
+========================================
+Menu
+========================================
+*/
+
+.navigation {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-inline-start: 5px;
+}
+
+.navigation a {
+  font-size: 20px;
+  }
+
+/*
+========================================
+Hamburg Menu
+========================================
+*/
+
+#menu {
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+ /*
+========================================
+Main
+========================================
+*/
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-grid, .home-headline-1, .home-headline-2, .home-paragraph-1,
+.home-paragraph-2, .home-right-img, .home-left-img {
+  display: flex;
+  flex-direction: column;
+  }
+
+ /*
+========================================
+Card
+========================================
+*/
+.card section {
+  width: 100%;
+}
+
+   /*
+========================================
+Source List
+========================================
+*/
+
+.styled-list li {
+  margin: 20px 0;
+
+}
+
+ /*
+========================================
+Footer
+========================================
+*/
+
+.footer p {
+font-size: 13px
+}
+
+}
+  
+@media (min-width: 768px) and (max-width: 1200px) {
+
+  body {
+    max-width: 100%;
+  }
+
+   /*
+========================================
+Main
+========================================
+*/
+
+/*
+========================================
+Source List
+========================================
+*/
+
+.styled-list li {
+  margin: 8px 0;
+}
+
+  
+}
