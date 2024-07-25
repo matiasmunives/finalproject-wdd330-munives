@@ -30,7 +30,7 @@ Util.getNav = async function (req, res, next) {
 }
 
 /* **************************************
-* Build the classification view HTML
+* Build the temples view HTML
 * ************************************ */
 Util.buildTempleGrid = async function(data){
     let grid
@@ -99,20 +99,20 @@ Util.buildByTempleId = async function(data){
 /***************************************
 Build an HTML select element with classification data
 * ************************************ */
-Util.buildTempleList = async function (temple_id = null) {
+Util.buildTempleList = async function (temp_id = null) {
   let data = await tempModel.getTemples();
   let templeList =
     '<select name="temple_id" id="templeList" required>';
   templeList += "<option value=''>Choose a Temple</option>";
   data.rows.forEach((row) => {
-    templeList += '<option value="' + row.temple_id + '"';
+    templeList += '<option value="' + row.temp_id + '"';
     if (
-      temple_id != null &&
-      row.classification_id == temple_id
+      temp_id != null &&
+      row.temp_id == temp_id
     ) {
       templeList += " selected ";
     }
-    templeList += ">" + row.temple_name + "</option>";
+    templeList += ">" + row.temp_name + "</option>";
   });
   templeList += "</select>";
   return templeList;

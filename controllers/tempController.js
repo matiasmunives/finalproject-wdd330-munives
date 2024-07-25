@@ -178,13 +178,13 @@ tempCont.addClassification = async function (req, res, next) {
 };
 
 /* ***************************
- *  Return Inventory by Classification As JSON
+ *  Return Temple As JSON
  * ************************** */
-tempCont.getInventoryJSON = async (req, res, next) => {
-  const classification_id = parseInt(req.params.classification_id)
-  const invData = await tempModel.getInventoryByClassificationId(classification_id)
-  if (invData[0].inv_id) {
-    return res.json(invData)
+tempCont.getTempleJSON = async (req, res, next) => {
+  const temp_id = parseInt(req.params.temp_id)
+  const tempData = await tempModel.getTemplesByTempleId(temp_id)
+  if (tempData[0].temp_id) {
+    return res.json(tempData)
   } else {
     next(new Error("No data returned"))
   }

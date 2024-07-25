@@ -72,18 +72,21 @@ nav {
   background-color: whitesmoke;
   display: flex;
   flex-direction: row;
+  margin-bottom: 30px;
 }
 
 .navigation {
-  list-style: none;
-
   justify-content: center;
-  padding-right: 40px;
+}
+
+.navigation ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
 }
 
 .navigation a {
-  display: inline;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: var(--headline-color-on-white);
   }
@@ -105,12 +108,8 @@ nav ul a:visited {
 }
 
 nav ul a:hover {
-  border-bottom-style: solid ;
+  border-bottom-style: solid 1px var(--primary-color);
   border-bottom-width: 3px;
-  color: var(--headline-color-on-color);
-  background-color: var(--header-background-color);
-  padding: 10px;
-  border-radius: 10px;
   }
 
 /*
@@ -163,8 +162,7 @@ main h1 {
   font-weight: bold;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin-top: 25px; 
-  margin-bottom: 5px;
+  margin: auto;
   max-width: 70%;
 }
 

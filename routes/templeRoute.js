@@ -38,7 +38,7 @@ router.post("/add_classification",
 
 //Router to get the vehicles for management view to update and delete
 //Returns JSON
-router.get("/getTemple/:temp_id", utilities.handleErrors(tempController.getInventoryJSON))
+router.get("/getTemple/:temp_id", utilities.handleErrors(tempController.getTempleJSON))
 
 // Route to update vehicle detail
 router.get("/edit/:inventoryId", utilities.handleErrors(tempController.editVehicleForm));
