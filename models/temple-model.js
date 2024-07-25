@@ -22,7 +22,7 @@ async function getTemplesByTempleId(temp_id) {
     )
     return data.rows
   } catch (error) {
-    console.error("getTemplesById error " + error)
+    console.error("getTemplesByTempleId error " + error)
   }
 }
 

@@ -39,7 +39,7 @@ Util.buildTempleGrid = async function(data){
       data.forEach(temple => { 
         grid += '<li>'
         grid +=  '<a href="../../temp/detail/'+ temple.temp_id 
-        + '" title="View ' + temple.temp_name +
+        + '" title="View ' + temple.temp_name
         + 'details"><img src="' + temple.temp_picture
         +'" alt="Image of '+ temple.temp_name + 
         +' Temples" ></a>'
@@ -63,28 +63,32 @@ Util.buildTempleGrid = async function(data){
   /* **************************************
 * Build the details view HTML
 * ************************************ */
-Util.buildByTempleId = async function(data){
+Util.buildTempleDetailById = async function(data){
   let grid
-  if(data.length > 0){
+  if(data.length > 0) {
     grid = '<ul id="inv-detail-display">'
     data.forEach(temple => { 
+
+      let formattedBdate = moment(temple.temp_bdate).format('DD-MM-YYYY');
+      let formattedDdate = moment(temple.temp_ddate).format('DD-MM-YYYY');
+
       grid += '<li>'
       grid +=  '<img src="' + temple.temp_picture
-      +'" alt="Image of '+ temple.temp_name + 
+      +'" alt="Image of '+ temple.temp_name
       +' on Temples" >'
       grid += '<hr >'
       grid += '<div class="detailInfo">'
-      grid += '<p>' + '<strong>' + "Address: " + '</strong>' + temple.temple_name
+      grid += '<p>' + "Address: " + temple.temp_address
       grid += '</p>'
-      grid += '<p>' +  '<strong>' + "City: " +  temple.temp_city
+      grid += '<p>'  + "City: " +  temple.temp_city
       grid += '</p>'
-      grid += '<p>' + '<strong>' + "Country " + '</strong>' + temple.temp_country
+      grid += '<p>'  + "Country: "  + temple.temp_country
       grid += '</p>'
-      grid += '<p>' + '<strong>' + "Phone: " + '</strong>' + temple.temp_phone
+      grid += '<p>'  + "Phone: "  + temple.temp_phone
       grid += '</p>'
-      grid += '<p>' + '<strong>' + "Groundbreaking: " + '</strong>' + temple.temp_bdate
+      grid += '<p>'  + "Groundbreaking: "  + formattedBdate
       grid += '</p>'
-      grid += '<p>' + '<strong>' + "Dedication: " + '</strong>' + temple.temp_ddate
+      grid += '<p>'  + "Dedication: "  + formattedDdate
       grid += '</p>'
       grid += '</div>'
       grid += '</li>'

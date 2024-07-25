@@ -14,7 +14,7 @@ tempCont.buildByTempleId = async function (req, res, next) {
   const grid = await utilities.buildTempleGrid(data)
   let nav = await utilities.getNav()
 
-  const className = data[0]?.temple_name || "Unknown";
+  const className = data[0]?.temp_name + " " + data[0]?.temp_country || "Unknown";
 
   res.render("./temples/temples", {
     title: className + " Temple",
@@ -35,7 +35,7 @@ tempCont.buildTempleDetailById = async function (req, res, next) {
   
   let nav = await utilities.getNav(); // get our nav
   
-  const title = data[0].temp_name + data[0].temp_country + "Temple" || "Unknown"; // create the title of the page  
+  const title = data[0].temp_name + " " + data[0].temp_country + " Temple" || "Unknown"; // create the title of the page  
   
   // render the detail view  
   res.render("./temples/detail", {

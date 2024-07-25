@@ -6,10 +6,10 @@ const utilities = require("../utilities");
 const validate = require("../utilities/vehicle-validation");
 
 // Route to build inventory by classification view
-router.get("/type/:temple_id", utilities.handleErrors(tempController.buildByTempleId));
+router.get("/type/:temp_id", utilities.handleErrors(tempController.buildByTempleId));
 
 // Route to build inventory detail view
-router.get("/detail/:temple_id", utilities.handleErrors(tempController.buildTempleDetailById));
+router.get("/detail/:temp_id", utilities.handleErrors(tempController.buildTempleDetailById));
 
 // Route to create intentional "error 500"
 router.get("/error/", utilities.handleErrors(tempController.errorRoute));
