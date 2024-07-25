@@ -1,54 +1,57 @@
 <h1 id="welcome">Welcome to CSE Motors!</h1>
 <%- messages() %>
 
-<div id="car-inf-dmc">
-    <div id="car-info">
-        <h2>DMC Delorean</h2>
-        <p>3 Cup holder</p>
-        <p>Superman doors</p>
-        <p>Fuzzy dice!</p>
-        <button>Own Today</button>
+<div class="banner">
+    <img
+      src="/images/templo.webp"
+      alt="image of a Cordoba Argentina Temple"
+    />
+  </div>
+  <section class="home-container">
+    <h2>Property and Inventory Management Tools</h2>
+    <p>This page offers efficient tools for managing building's properties and inventory.</p>
+    <ul>
+        <li><strong>Property Management:</strong> Organize and oversee all units in one place.</li>
+        <li><strong>Inventory Management:</strong> Track all assets and supplies with ease.</li>
+        <li><strong>Reports & Analysis:</strong> Generate detailed reports for informed decision-making.</li>
+        <li><strong>Alerts & Reminders:</strong> Get automatic notifications for important tasks.</li>
+    </ul>
+    <p>Simplify operations with these comprehensive management tools.</p>
+  </section>
+  <div class="container">
+    <div id="temples"> 
+      <a href="/temples/index.html">
+        <img
+          src="/images/temple.webp"
+          alt="Temple buildings"
+        />
+        <p>Temples</p>
+      </a>
     </div>
-
-    <img src="/images/vehicles/delorean.jpg" alt="Delorean Car" id="delorean-picture">
-</div>
-
-<div id="info-container">
-    <div id="info-1">
-        <h2>DMC Delorean Reviews</h2>
-        <ul>
-            <li>"So fast is's almost like traveling in time" (4/5)</li>
-            <li>"Coolest ride on the road" (4/5)</li>
-            <li>"I'm feeling McFly" (5/5)</li>
-            <li>"The most futuristic ride of our day" (4.5/5)</li>
-            <li>"80's living and I love it!" (4/5)</li>
-        </ul>
+    <div id="properties"> 
+      <a href="properties/index.html">
+        <img
+          src="/images/property.webp"
+          alt="Temple properties"
+        />
+        <p>Properties</p>
+      </a>
     </div>
-    <div id="info-2">
-        <h2>Delorean Upgrades</h2>
-        <div id="container-1">
-            <div class="box">
-                <img src="/images/upgrades/flux-cap.png" alt="Flux Capacitor" class="img-background-color">
-                <a href="/products/Flux_Capacitor">Flux Capacitor</a>               
-            </div>
-
-            <div class="box">
-                <img src="/images/upgrades/flame.jpg" alt="Flame Decals" class="img-background-color">
-                <a href="/products/Flame_Decals">Flame Decals</a>        
-            </div>
-        </div>
-
-        <div id="container-2">
-            <div class="box">
-                <img src="/images/upgrades/bumper_sticker.jpg" alt="Bumper Stickers" class="img-background-color">
-                <a href="/products/Bumper_Stickers">Bumper Stickers</a>
-                            
-            </div>
-
-            <div class="box">
-                <img src="/images/upgrades/hub-cap.jpg" alt="Hub Caps" class="img-background-color">
-                <a href="/products/Hub_Caps">Hub Caps</a>            
-            </div>
-        </div>
+    <div id="rooms"> 
+      <a href="rooms/index.html">
+        <img
+          src="/images/area.webp"
+          alt="Properties Rooms"
+        />
+        <p>Rooms</p>
+      </a>
     </div>
-</div>
+    <div id="items">
+      <a href="inventory/index.html">
+        <img
+          src="/images/items.webp"
+          alt="Inventory Items"
+        />
+        <p>Inventory Items</p>
+      </a>
+  </div>
