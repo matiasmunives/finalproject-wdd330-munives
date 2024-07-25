@@ -1,7 +1,7 @@
 const tempModel = require("../models/temple-model");
 const utilities = require("../utilities");
 
-const invCont = {}
+const tempCont = {}
 
 /* ***************************
  *  Build inventory by classification view
@@ -9,7 +9,7 @@ const invCont = {}
 
 tempCont.buildByTempleId = async function (req, res, next) {
   const temp_id = req.params.temp_id; 
-  const data = await invModel.getTemplesByTempleId(temp_id);
+  const data = await tempModel.getTemplesByTempleId(temp_id);
 
   const grid = await utilities.buildTempleGrid(data)
   let nav = await utilities.getNav()
@@ -17,7 +17,7 @@ tempCont.buildByTempleId = async function (req, res, next) {
   const className = data[0]?.temple_name || "Unknown";
 
   res.render("./temples/temples", {
-    title: className + " vehicles",
+    title: className + " Temple",
     nav,
     grid,
     errors: null,
@@ -28,17 +28,17 @@ tempCont.buildByTempleId = async function (req, res, next) {
 /* ***************************
  *  Build inventory detail
  * ************************** */
-invCont.buildByInventoryId = async function (req, res, next) {
-  const inventory_id = req.params.inventoryId;// get inventory id from the request
-  const data = await invModel.getInventoryById(inventory_id); // use inventory id to get the inventory based on id
-  const detail = await utilities.buildByInventoryId(data); //build a view with the vehicles/inventory result
+tempCont.buildTempleDetailById = async function (req, res, next) {
+  const temp_id = req.params.temp_id;// get inventory id from the request
+  const data = await tempModel.getTempleById(temp_id); // use inventory id to get the inventory based on id
+  const detail = await utilities.buildTempleDetailById(data); //build a view with the vehicles/inventory result
   
   let nav = await utilities.getNav(); // get our nav
   
-  const title = data[0].inv_make + " " + data[0].inv_model || "Unknown"; // create the title of the page  
+  const title = data[0].temp_name + data[0].temp_country + "Temple" || "Unknown"; // create the title of the page  
   
   // render the detail view  
-  res.render("./inventory/detail", {
+  res.render("./temples/detail", {
     title: title,
     nav,
     detail,
@@ -50,23 +50,23 @@ invCont.buildByInventoryId = async function (req, res, next) {
 /* ***************************
 *  Build management view
 * ************************** */
-invCont.buildManagementView = async function (req, res, next) {
+tempCont.buildManagementView = async function (req, res, next) {
   let nav = await utilities.getNav();
 
-  const classificationSelect = await utilities.buildClassificationList();
+  const templeSelect = await utilities.buildTempleList();
 
-  res.render("inventory/management", {
-    title: "Inventory Management",
+  res.render("temples/management", {
+    title: "Temples Management",
     errors: null,
     nav,
-    classificationSelect,
+    templeSelect,
   });
 };
 
 /* ***************************
  *  Form to add a vehicle
  * ************************** */
-invCont.buildAddInventory = async function (req, res, next) {
+tempCont.buildAddInventory = async function (req, res, next) {
   const nav = await utilities.getNav();
   let classifications = await utilities.buildClassificationList();
 
@@ -81,7 +81,7 @@ invCont.buildAddInventory = async function (req, res, next) {
 /* ****************************************
 *  Process form submission to add a vehicle 
 * *************************************** */
-invCont.addInventory = async function (req, res, next) {
+tempCont.addInventory = async function (req, res, next) {
   const nav = await utilities.getNav();
 
   const {
@@ -97,7 +97,7 @@ invCont.addInventory = async function (req, res, next) {
     classification_id,
   } = req.body;
 
-  const response = await invModel.addInventory(
+  const response = await tempModel.addInventory(
     inv_make,
     inv_model,
     inv_year,
@@ -136,7 +136,7 @@ invCont.addInventory = async function (req, res, next) {
 /* ***************************
 *  Render to add a classification
 * ************************** */
-invCont.buildAddClassification = async function (req, res, next) {
+tempCont.buildAddClassification = async function (req, res, next) {
   let nav = await utilities.getNav();
 
   res.render("inventory/addClassification", {
@@ -149,14 +149,14 @@ invCont.buildAddClassification = async function (req, res, next) {
 /* ****************************************
 *  Process form submission to add a classification
 * *************************************** */
-invCont.addClassification = async function (req, res, next) {
+tempCont.addClassification = async function (req, res, next) {
   const nav = await utilities.getNav(); // After query, so it shows new classification
 
   const {
     classification_name
   } = req.body;
 
-  const response = await invModel.addClassification(
+  const response = await tempModel.addClassification(
     classification_name
   ); // ...to a function within the inventory model...
   
@@ -180,9 +180,9 @@ invCont.addClassification = async function (req, res, next) {
 /* ***************************
  *  Return Inventory by Classification As JSON
  * ************************** */
-invCont.getInventoryJSON = async (req, res, next) => {
+tempCont.getInventoryJSON = async (req, res, next) => {
   const classification_id = parseInt(req.params.classification_id)
-  const invData = await invModel.getInventoryByClassificationId(classification_id)
+  const invData = await tempModel.getInventoryByClassificationId(classification_id)
   if (invData[0].inv_id) {
     return res.json(invData)
   } else {
@@ -193,11 +193,11 @@ invCont.getInventoryJSON = async (req, res, next) => {
 /* ***************************
  *  Build update vehicle view
  * ************************** */
-invCont.editVehicleForm = async function (req, res, next) {
+tempCont.editVehicleForm = async function (req, res, next) {
   //use inventory id to get inventory based on id
   const inventory_id = parseInt(req.params.inventoryId);// get inventory id from the request
   const nav = await utilities.getNav();
-  const data = await invModel.getInventoryById(inventory_id); // use inventory id to get the inventory based on id
+  const data = await tempModel.getInventoryById(inventory_id); // use inventory id to get the inventory based on id
   const title = data[0].inv_make + " " + data[0].inv_model;   //create title of the page 
   let classificationList = await utilities.buildClassificationList(data.classification_id)   //build classification list
 
@@ -224,7 +224,7 @@ invCont.editVehicleForm = async function (req, res, next) {
 /* ****************************************
  *  Process form submission to update vehicle
 * *************************************** */
-invCont.updateInventory = async function (req, res, next) {
+tempCont.updateInventory = async function (req, res, next) {
   const nav = await utilities.getNav();
 
   const {
@@ -241,7 +241,7 @@ invCont.updateInventory = async function (req, res, next) {
     classification_id,
   } = req.body;
 
-  const updateResult = await invModel.updateInventory(
+  const updateResult = await tempModel.updateInventory(
     inv_id,
     inv_make,
     inv_model,
@@ -287,9 +287,9 @@ invCont.updateInventory = async function (req, res, next) {
 /* ***************************
  *  Delete confirmation view
  * ************************** */
-invCont.deleteVehicleConfirmation = async function (req, res, next) {
+tempCont.deleteVehicleConfirmation = async function (req, res, next) {
   const inventory_id = req.params.inventoryId;// get inventory id from the request
-  const data = await invModel.getInventoryById(inventory_id); // use inventory id to get the inventory based on id
+  const data = await tempModel.getInventoryById(inventory_id); // use inventory id to get the inventory based on id
   let nav = await utilities.getNav(); // get our nav
   const title = data[0].inv_make + " " + data[0].inv_model || "Unknown"; // create the title of the page  
   
@@ -309,7 +309,7 @@ invCont.deleteVehicleConfirmation = async function (req, res, next) {
 /* ****************************************
  *  Delete vehicle data
 * *************************************** */
-invCont.deleteVehicle = async function (req, res, next) {
+tempCont.deleteVehicle = async function (req, res, next) {
   const nav = await utilities.getNav();
 
   const {
@@ -320,7 +320,7 @@ invCont.deleteVehicle = async function (req, res, next) {
     inv_price,
   } = req.body;
 
-  const deleteResult = await invModel.deleteVehicle(
+  const deleteResult = await tempModel.deleteVehicle(
     inv_id,
     inv_make,
     inv_model,
@@ -350,8 +350,8 @@ invCont.deleteVehicle = async function (req, res, next) {
  *  Build error route
  * ************************** */
 
-  invCont.errorRoute = async function (req, res, next) {
+  tempCont.errorRoute = async function (req, res, next) {
     abcdefg
   };
 
-module.exports = invCont;
+module.exports = tempCont;

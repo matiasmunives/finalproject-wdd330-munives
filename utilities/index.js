@@ -20,7 +20,7 @@ Util.getNav = async function (req, res, next) {
       row.temp_id +
       '" title="See the ' +
       row.temp_name + 
-      ' temples">' +
+      ' Temple">' +
       row.temp_name +
       "</a>"
     list += "</li>"
@@ -38,7 +38,7 @@ Util.buildTempleGrid = async function(data){
       grid = '<ul id="inv-display">'
       data.forEach(temple => { 
         grid += '<li>'
-        grid +=  '<a href="../../inv/detail/'+ temple.temp_id 
+        grid +=  '<a href="../../temp/detail/'+ temple.temp_id 
         + '" title="View ' + temple.temp_name +
         + 'details"><img src="' + temple.temp_picture
         +'" alt="Image of '+ temple.temp_name + 
@@ -80,7 +80,7 @@ Util.buildByTempleId = async function(data){
       grid += '</p>'
       grid += '<p>' + '<strong>' + "Country " + '</strong>' + temple.temp_country
       grid += '</p>'
-      grid += '<p>' + '<strong>' + "Phone: " + '</strong>' + new Intl.NumberFormat('en-US').format(temple.temp_phone)
+      grid += '<p>' + '<strong>' + "Phone: " + '</strong>' + temple.temp_phone
       grid += '</p>'
       grid += '<p>' + '<strong>' + "Groundbreaking: " + '</strong>' + temple.temp_bdate
       grid += '</p>'
@@ -103,7 +103,7 @@ Util.buildTempleList = async function (temple_id = null) {
   let data = await tempModel.getTemples();
   let templeList =
     '<select name="temple_id" id="templeList" required>';
-  classificationList += "<option value=''>Choose a Temple</option>";
+  templeList += "<option value=''>Choose a Temple</option>";
   data.rows.forEach((row) => {
     templeList += '<option value="' + row.temple_id + '"';
     if (

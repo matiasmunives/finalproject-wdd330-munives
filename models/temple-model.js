@@ -17,7 +17,7 @@ async function getTemplesByTempleId(temp_id) {
       temp_city, temp_country, temp_bdate, temp_ddate,
       temp_phone, temp_picture
       FROM temples
-      WHERE temple_id = ?;`,
+      WHERE temple_id = $1`,
       [temp_id]
     )
     return data.rows
@@ -29,18 +29,19 @@ async function getTemplesByTempleId(temp_id) {
 /* ***************************
  *  Get all inventory items and classification_name by inventory_id
  * ************************** */
-async function getInventoryById(inventory_id) {
+async function getTempleById(temp_id) {
   try {
     const data = await pool.query(
-      `SELECT * FROM public.inventory AS i 
-      JOIN public.classification AS c 
-      ON i.classification_id = c.classification_id 
-      WHERE i.inv_id = $1`,
-      [inventory_id]
+      `SELECT temp_id, temp_name, temp_address, 
+      temp_city, temp_country, temp_bdate, temp_ddate,
+      temp_phone, temp_picture
+      FROM temples
+      WHERE temple_id = $1`,
+      [temp_id]
     )
     return data.rows
   } catch (error) {
-    console.error("getInventoryById error " + error)
+    console.error("getTempleById error " + error)
   }
 }
 
@@ -172,6 +173,6 @@ async function deleteVehicle(inv_id) {
   }
 }
 
-module.exports = {getTemples, getTemplesByTempleId, getInventoryById,
+module.exports = {getTemples, getTemplesByTempleId, getTempleById,
   addClassification, addInventory, updateInventory, deleteVehicle};
 
