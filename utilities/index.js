@@ -1,4 +1,4 @@
-const invTemple = require("../models/temple-model")
+const tempModel = require("../models/temple-model")
 const empModel = require("../models/employee-model")
 const moment = require('moment');
 const jwt = require("jsonwebtoken")
@@ -10,7 +10,7 @@ const Util = {}
  * Constructs the nav HTML unordered list
  ************************** */
 Util.getNav = async function (req, res, next) {
-  let data = await invTemple.getTemples()
+  let data = await tempModel.getTemples()
   let list = "<ul>"
   list += '<li><a href="/" title="Home page">Home</a></li>'
   data.rows.forEach((row) => {
@@ -69,28 +69,29 @@ Util.buildByTempleId = async function(data){
     grid = '<ul id="inv-detail-display">'
     data.forEach(temple => { 
       grid += '<li>'
-      grid +=  '<img src="' + vehicle.inv_image
-      +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
-      +' on CSE Motors" >'
+      grid +=  '<img src="' + temple.temp_picture
+      +'" alt="Image of '+ temple.temp_name + 
+      +' on Temples" >'
       grid += '<hr >'
       grid += '<div class="detailInfo">'
-      grid += '<p>' + '<strong>' + "Category: " + '</strong>' + vehicle.classification_name
+      grid += '<p>' + '<strong>' + "Address: " + '</strong>' + temple.temple_name
       grid += '</p>'
-      grid += '<p>' +  '<strong>' + "Price: " + '</strong>' + '<span>$'
-      + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span>'
+      grid += '<p>' +  '<strong>' + "City: " +  temple.temp_city
       grid += '</p>'
-      grid += '<p>' + '<strong>' + "Year " + '</strong>' + vehicle.inv_year
+      grid += '<p>' + '<strong>' + "Country " + '</strong>' + temple.temp_country
       grid += '</p>'
-      grid += '<p>' + '<strong>' + "Miles: " + '</strong>' + new Intl.NumberFormat('en-US').format(vehicle.inv_miles)
+      grid += '<p>' + '<strong>' + "Phone: " + '</strong>' + new Intl.NumberFormat('en-US').format(temple.temp_phone)
       grid += '</p>'
-      grid += '<p class="description">' + '<strong>' + "Description: " + '</strong>' + vehicle.inv_description
+      grid += '<p>' + '<strong>' + "Groundbreaking: " + '</strong>' + temple.temp_bdate
+      grid += '</p>'
+            grid += '<p>' + '<strong>' + "Dedication: " + '</strong>' + temple.temp_ddate
       grid += '</p>'
       grid += '</div>'
       grid += '</li>'
     })
     grid += '</ul>'
   } else { 
-    grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+    grid += '<p class="notice">Sorry, no matching temples could be found.</p>'
   }
   return grid
 }
@@ -98,23 +99,23 @@ Util.buildByTempleId = async function(data){
 /***************************************
 Build an HTML select element with classification data
 * ************************************ */
-Util.buildClassificationList = async function (classification_id = null) {
-  let data = await invModel.getClassifications();
-  let classificationList =
-    '<select name="classification_id" id="classificationList" required>';
-  classificationList += "<option value=''>Choose a Classification</option>";
+Util.buildTempleList = async function (temple_id = null) {
+  let data = await tempModel.getTemples();
+  let templeList =
+    '<select name="temple_id" id="templeList" required>';
+  classificationList += "<option value=''>Choose a Temple</option>";
   data.rows.forEach((row) => {
-    classificationList += '<option value="' + row.classification_id + '"';
+    templeList += '<option value="' + row.temple_id + '"';
     if (
-      classification_id != null &&
-      row.classification_id == classification_id
+      temple_id != null &&
+      row.classification_id == temple_id
     ) {
-      classificationList += " selected ";
+      templeList += " selected ";
     }
-    classificationList += ">" + row.classification_name + "</option>";
+    templeList += ">" + row.temple_name + "</option>";
   });
-  classificationList += "</select>";
-  return classificationList;
+  templeList += "</select>";
+  return templeList;
 };
 
 /* ****************************************
