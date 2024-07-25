@@ -38,10 +38,10 @@ Util.buildTempleGrid = async function(data){
       grid = '<ul id="inv-display">'
       data.forEach(temple => { 
         grid += '<li>'
-        grid +=  '<a href="../../inv/detail/'+ temples.temp_id 
+        grid +=  '<a href="../../inv/detail/'+ temple.temp_id 
         + '" title="View ' + temple.temp_name +
-        + 'details"><img src="' + vehicle.temp_picture
-        +'" alt="Image of '+ vehicle.inv_name + 
+        + 'details"><img src="' + temple.temp_picture
+        +'" alt="Image of '+ temple.temp_name + 
         +' Temples" ></a>'
         grid += '<div class="namePrice">'
         grid += '<hr >'
@@ -63,11 +63,11 @@ Util.buildTempleGrid = async function(data){
   /* **************************************
 * Build the details view HTML
 * ************************************ */
-Util.buildByInventoryId = async function(data){
+Util.buildByTempleId = async function(data){
   let grid
   if(data.length > 0){
     grid = '<ul id="inv-detail-display">'
-    data.forEach(vehicle => { 
+    data.forEach(temple => { 
       grid += '<li>'
       grid +=  '<img src="' + vehicle.inv_image
       +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
